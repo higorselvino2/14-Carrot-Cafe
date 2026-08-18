@@ -575,8 +575,15 @@
             max-width: 900px;
             padding: 0 2rem;
             margin-top: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
         }
 
+        .hero-content.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .hero-eyebrow {
             font-size: 0.85rem;
@@ -1566,6 +1573,54 @@
             opacity: 1;
             transform: translateY(0);
         }
+    
+        /* Masonry specific styles */
+        .page-header {
+            padding: 12rem 5% 5rem;
+            text-align: center;
+            background-color: var(--color-light);
+        }
+        .page-header h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: var(--color-dark);
+            margin-bottom: 1rem;
+            font-family: var(--font-display);
+        }
+        .masonry-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5% 8rem;
+        }
+        .masonry {
+            column-count: 4;
+            column-gap: 1.5rem;
+        }
+        @media (max-width: 1024px) { .masonry { column-count: 3; } }
+        @media (max-width: 768px) { .masonry { column-count: 2; } }
+        @media (max-width: 480px) { .masonry { column-count: 1; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            cursor: pointer;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: #eee;
+            display: inline-block;
+            width: 100%;
+        }
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .masonry-item:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.9);
+        }
+
     </style>
 </head>
 
@@ -1577,20 +1632,20 @@
 
     <!-- Header -->
     <header id="main-header">
-        <a href="#home" class="logo-container" aria-label="Home">
+        <a href="index.html#home" class="logo-container" aria-label="Home">
             <img src="images/logo-branco.png" alt="14 Carrot Cafe Logo" class="logo-light" id="logo-light">
             <img src="images/logo.png" alt="14 Carrot Cafe Logo" class="logo-dark" id="logo-dark">
         </a>
 
         <nav class="desktop-nav">
-            <a href="#story">Our Story</a>
-            <a href="#menu">Menu</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#visit">Visit Us</a>
+            <a href="index.html#story">Our Story</a>
+            <a href="index.html#menu">Menu</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#reviews">Reviews</a>
+            <a href="index.html#visit">Visit Us</a>
         </nav>
 
-        <a href="#menu" class="btn header-cta" onclick="alert('Online ordering integration placeholder.')">Order
+        <a href="index.html#menu" class="btn header-cta" onclick="alert('Online ordering integration placeholder.')">Order
             Online</a>
 
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -1601,399 +1656,53 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <nav class="mobile-nav">
-            <a href="#story" class="mob-link">Our Story</a>
-            <a href="#menu" class="mob-link">Menu</a>
-            <a href="#gallery" class="mob-link">Gallery</a>
-            <a href="#reviews" class="mob-link">Reviews</a>
-            <a href="#visit" class="mob-link">Visit Us</a>
+            <a href="index.html#story" class="mob-link">Our Story</a>
+            <a href="index.html#menu" class="mob-link">Menu</a>
+            <a href="index.html#gallery" class="mob-link">Gallery</a>
+            <a href="index.html#reviews" class="mob-link">Reviews</a>
+            <a href="index.html#visit" class="mob-link">Visit Us</a>
         </nav>
         <div style="margin-top: 3rem;">
-            <a href="#menu" class="btn btn-outline-dark mob-link" onclick="alert('Online ordering placeholder')">Order
+            <a href="index.html#menu" class="btn btn-outline-dark mob-link" onclick="alert('Online ordering placeholder')">Order
                 Online</a>
         </div>
     </div>
 
+    
     <main>
-        <!-- HERO -->
-        <section class="hero" id="home">
-            <img src="images/722707482_1605650948236405_7819599499376383674_n.jpg"
-                alt="14 Carrot Cafe Exterior at Night" class="hero-img">
-            <div class="hero-overlay"></div>
-
-            <div class="hero-content" id="hero-content">
-                <span class="hero-eyebrow">A Seattle Neighborhood Favorite</span>
-                <h1>A Breakfast<br>Tradition</h1>
-                <p>Serving hearty, home-cooked comfort food and fresh juices in a warm, welcoming community space.</p>
-                <div class="hero-ctas">
-                    <a href="#menu" class="btn">View Menu</a>
-                    <a href="#visit" class="btn btn-outline">Get Directions</a>
-                </div>
-            </div>
-
-            <div class="hero-info">
-                <span>📍 2305 Eastlake Ave E, Seattle</span>
-                <span>⏱️ Open Wed—Mon at 8AM</span>
-            </div>
-
-            <div class="scroll-down">Scroll</div>
+        <section class="page-header">
+            <span class="eyebrow" style="color:var(--color-primary);">Full Collection</span>
+            <h1>Gallery</h1>
+            <p style="color: #666; max-width: 600px; margin: 0 auto; font-size: 1.1rem;">A visual taste of our neighborhood tradition. Explore our space, our community, and our favorite dishes.</p>
+            <a href="index.html" class="btn btn-outline-dark" style="margin-top: 2.5rem;">Back to Home</a>
         </section>
 
-        <!-- OUR STORY -->
-        <section class="story" id="story">
-            <div class="story-container reveal">
-                <div class="story-images">
-                    <img src="images/670771379_18193697089362583_6752190593190879155_n.jpg" alt="Cafe atmosphere"
-                        class="story-img-main" loading="lazy">
-                    <img src="images/566915757_18174733108362583_6469930787519145683_n.jpg" alt="Fresh ingredients"
-                        class="story-img-sub" loading="lazy">
+        <section class="masonry-container">
+            <div class="masonry">
+                    <div class="masonry-item" data-index="0"><img src="images/566568936_18174733120362583_5656510298398324488_n.jpg" loading="lazy" alt="Gallery image 1"></div>
+                    <div class="masonry-item" data-index="1"><img src="images/566915757_18174733108362583_6469930787519145683_n.jpg" loading="lazy" alt="Gallery image 2"></div>
+                    <div class="masonry-item" data-index="2"><img src="images/567300934_18174733129362583_1003618598991262765_n.jpg" loading="lazy" alt="Gallery image 3"></div>
+                    <div class="masonry-item" data-index="3"><img src="images/567431191_18174733138362583_1690359756033910130_n.jpg" loading="lazy" alt="Gallery image 4"></div>
+                    <div class="masonry-item" data-index="4"><img src="images/568143447_18174733156362583_8333439003938709895_n.jpg" loading="lazy" alt="Gallery image 5"></div>
+                    <div class="masonry-item" data-index="5"><img src="images/587678194_18178258909362583_8778894555881214841_n.jpg" loading="lazy" alt="Gallery image 6"></div>
+                    <div class="masonry-item" data-index="6"><img src="images/605827491_1457523919715776_5207001130027318129_n.jpg" loading="lazy" alt="Gallery image 7"></div>
+                    <div class="masonry-item" data-index="7"><img src="images/670771379_18193697089362583_6752190593190879155_n.jpg" loading="lazy" alt="Gallery image 8"></div>
+                    <div class="masonry-item" data-index="8"><img src="images/670871298_18193697098362583_7027482299732177252_n.jpg" loading="lazy" alt="Gallery image 9"></div>
+                    <div class="masonry-item" data-index="9"><img src="images/681312342_18194576512362583_1006122360286569549_n.jpg" loading="lazy" alt="Gallery image 10"></div>
+                    <div class="masonry-item" data-index="10"><img src="images/703924105_1586837786784388_6557480021085142697_n.jpg" loading="lazy" alt="Gallery image 11"></div>
+                    <div class="masonry-item" data-index="11"><img src="images/722707482_1605650948236405_7819599499376383674_n.jpg" loading="lazy" alt="Gallery image 12"></div>
+                    <div class="masonry-item" data-index="12"><img src="images/724534238_18199899448362583_563850997672403012_n.jpg" loading="lazy" alt="Gallery image 13"></div>
+                    <div class="masonry-item" data-index="13"><img src="images/724597732_18199899430362583_1886354497412911977_n.jpg" loading="lazy" alt="Gallery image 14"></div>
+                    <div class="masonry-item" data-index="14"><img src="images/724653971_18199899439362583_3553992632088482079_n.jpg" loading="lazy" alt="Gallery image 15"></div>
+                    <div class="masonry-item" data-index="15"><img src="images/Bloody%20Mary1.jpg" loading="lazy" alt="Gallery image 16"></div>
+                    <div class="masonry-item" data-index="16"><img src="images/Corned%20Beef%20Hash1.jpg" loading="lazy" alt="Gallery image 17"></div>
+                    <div class="masonry-item" data-index="17"><img src="images/Florentine%20Benedict1.jpg" loading="lazy" alt="Gallery image 18"></div>
+                    <div class="masonry-item" data-index="18"><img src="images/Mimosa%20Carafe1.jpg" loading="lazy" alt="Gallery image 19"></div>
+                    <div class="masonry-item" data-index="19"><img src="images/mimosas1.jpg" loading="lazy" alt="Gallery image 20"></div>
                 </div>
-                <div class="story-content">
-                    <span class="eyebrow">The Flagship</span>
-                    <h2>More Than Just a Cafe</h2>
-                    <p>Since we opened our doors, the 14 Carrot Cafe has been a staple in the Seattle community. It's a
-                        place where people from all walks of life come to enjoy a bite and a respite from the hustle and
-                        bustle of the city.</p>
-                    <p>Whether you're stopping by for our famous Corned Beef Hash, fresh carrot juice, or our phenomenal
-                        gluten-free options, we believe in treating every guest like family.</p>
-
-                    <div class="story-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">1976</span>
-                            <span class="stat-label">Est. Seattle</span> <!-- Placeholder year, easily editable -->
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Fresh Ingredients</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
-
-        <!-- MENU -->
-        <section class="menu-section" id="menu">
-            <div class="menu-wrapper reveal">
-                <div class="menu-header">
-                    <span class="eyebrow">Handcrafted</span>
-                    <h2 class="section-title">Our Menu</h2>
-                </div>
-
-                <!-- Tabs -->
-                <div class="menu-tabs">
-                    <button class="menu-tab active" data-filter="all">All</button>
-                    <button class="menu-tab" data-filter="breakfast">Breakfast</button>
-                    <button class="menu-tab" data-filter="sandwiches">Sandwiches</button>
-                    <button class="menu-tab" data-filter="drinks">Drinks</button>
-                </div>
-
-                <!-- Menu Items -->
-                <div class="menu-grid" id="menu-grid">
-                    <!-- Item -->
-                    <div class="menu-item-card" data-category="breakfast">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Corned Beef Hash</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">A home run every time. Savory, deeply satisfying, served with eggs and
-                            toast.</p>
-                        <span class="menu-item-tag">Signature</span>
-                    </div>
-
-                    <div class="menu-item-card" data-category="breakfast">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Florentine Benedict</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">Classic poached eggs with spinach and rich hollandaise sauce.</p>
-                    </div>
-
-                    <div class="menu-item-card" data-category="breakfast">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Biscuits N Gravy</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">Also available with whole wheat biscuits.</p>
-                    </div>
-
-                    <div class="menu-item-card" data-category="breakfast">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Carrot Cake Pancakes</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">Absolutely incredible, a must get sweet morning treat.</p>
-                        <span class="menu-item-tag">New Favorite</span>
-                    </div>
-
-                    <div class="menu-item-card" data-category="sandwiches">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Le' Cubano</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">The ultimate Cuban Breakfast Sandwich pressed to perfection.</p>
-                    </div>
-
-                    <div class="menu-item-card" data-category="sandwiches">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Gyro Sandwich</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">Freshly made with our special homemade tzatziki sauce.</p>
-                    </div>
-
-                    <div class="menu-item-card" data-category="drinks">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Mimosa Carafe</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">Consistently spot on. Perfect for sharing with the table.</p>
-                        <span class="menu-item-tag">Popular</span>
-                    </div>
-
-                    <div class="menu-item-card" data-category="drinks">
-                        <div class="menu-item-top">
-                            <h3 class="menu-item-name">Fresh Carrot Juice</h3>
-                            <div class="menu-item-dots"></div>
-                            <span class="menu-item-price">$XX</span>
-                        </div>
-                        <p class="menu-item-desc">Our namesake, pressed fresh daily in-house.</p>
-                    </div>
-                </div>
-
-                <div class="menu-cta-container">
-                    <button class="btn btn-outline-dark" onclick="alert('PDF Menu link placeholder')">View Full Menu
-                        PDF</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOD HIGHLIGHTS -->
-        <section class="highlights">
-            <div class="highlights-grid reveal">
-                <div class="highlight-card">
-                    <img src="images/Corned Beef Hash1.jpg" alt="Corned Beef Hash" loading="lazy">
-                    <div class="highlight-overlay">
-                        <span class="highlight-tag">Signature Dish</span>
-                        <h3>Corned Beef Hash</h3>
-                        <p>Our famous savory classic.</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <img src="images/Florentine Benedict1.jpg" alt="Florentine Benedict" loading="lazy">
-                    <div class="highlight-overlay">
-                        <span class="highlight-tag">Brunch Favorite</span>
-                        <h3>Florentine Benedict</h3>
-                        <p>Perfectly poached every time.</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <img src="images/567300934_18174733129362583_1003618598991262765_n.jpg" alt="Pancakes"
-                        loading="lazy">
-                    <div class="highlight-overlay">
-                        <span class="highlight-tag">Sweet Mornings</span>
-                        <h3>Pancakes</h3>
-                        <p>Fluffy, golden, and comforting.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GALLERY -->
-        <section class="gallery-section" id="gallery"
-            style="background-color: var(--color-dark); padding-bottom: 6rem;">
-            <div class="gallery">
-                <div class="gallery-item" data-index="0"><img src="images/Bloody Mary1.jpg" alt="Bloody Mary"
-                        loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-                <div class="gallery-item" data-index="1"><img src="images/mimosas1.jpg" alt="Mimosas" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-                <div class="gallery-item" data-index="2"><img
-                        src="images/681312342_18194576512362583_1006122360286569549_n.jpg" alt="Fresh Plates"
-                        loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-                <div class="gallery-item" data-index="3"><img
-                        src="images/566568936_18174733120362583_5656510298398324488_n.jpg" alt="Cafe Interior"
-                        loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-
-                <div class="gallery-item" data-index="4"><img
-                        src="images/703924105_1586837786784388_6557480021085142697_n.jpg" alt="Coffee Pour"
-                        loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-                <div class="gallery-item" data-index="5"><img src="images/Mimosa Carafe1.jpg" alt="Mimosa Carafe"
-                        loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-                <div class="gallery-item" data-index="6"><img
-                        src="images/605827491_1457523919715776_5207001130027318129_n.jpg" alt="Food Detail"
-                        loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-                <div class="gallery-item" data-index="7"><img
-                        src="images/724597732_18199899430362583_1886354497412911977_n.jpg" alt="Exterior"
-                        loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-icon">+</span></div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
-            </div>
-        </section>
-
-        <!-- REVIEWS CAROUSEL -->
-        <section class="reviews" id="reviews">
-            <div class="reviews-container reveal">
-                <span class="eyebrow">Guestbook</span>
-
-                <div class="carousel-track" id="carousel">
-                    <!-- Slide 1 -->
-                    <div class="carousel-slide active">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-quote">"My go-to favorite is the corned beef and hash—it’s always a home run.
-                            Great food, warm family-friendly vibes, and a welcoming atmosphere every time."</p>
-                        <div class="review-author">Dometios Tziotis</div>
-                        <div class="review-source">Google Review</div>
-                    </div>
-                    <!-- Slide 2 (Placeholder example for preview) -->
-                    <div class="carousel-slide">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-quote">"[Placeholder Review] The fresh carrot juice is absolutely incredible.
-                            Best breakfast spot in the neighborhood by far!"</p>
-                        <div class="review-author">[Add Name]</div>
-                        <div class="review-source">Yelp Review</div>
-                    </div>
-                </div>
-
-                <div class="carousel-dots" id="carousel-dots">
-                    <div class="dot active" data-slide="0"></div>
-                    <div class="dot" data-slide="1"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- INSTAGRAM / SOCIAL PROOF -->
-        <section class="instagram">
-            <div class="insta-header reveal">
-                <span class="eyebrow">Follow Along</span>
-                <h2>@14carrotcafe</h2>
-            </div>
-            <div class="insta-grid">
-                <!-- Using existing images to simulate Instagram feed -->
-                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item">
-                    <img src="images/568143447_18174733156362583_8333439003938709895_n.jpg" alt="Instagram Post"
-                        loading="lazy">
-                    <div class="insta-overlay">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img
-                        src="images/670771379_18193697089362583_6752190593190879155_n.jpg" alt="Instagram Post"
-                        loading="lazy">
-                    <div class="insta-overlay"><svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg></div>
-                </a>
-                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img
-                        src="images/Corned Beef Hash1.jpg" alt="Instagram Post" loading="lazy">
-                    <div class="insta-overlay"><svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c...z" />
-                        </svg></div>
-                </a>
-                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img
-                        src="images/703924105_1586837786784388_6557480021085142697_n.jpg" alt="Instagram Post"
-                        loading="lazy">
-                    <div class="insta-overlay"><svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c...z" />
-                        </svg></div>
-                </a>
-                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img
-                        src="images/mimosas1.jpg" alt="Instagram Post" loading="lazy">
-                    <div class="insta-overlay"><svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c...z" />
-                        </svg></div>
-                </a>
-                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img
-                        src="images/566568936_18174733120362583_5656510298398324488_n.jpg" alt="Instagram Post"
-                        loading="lazy">
-                    <div class="insta-overlay"><svg viewBox="0 0 24 24">
-                            <path d="M12 2.163c...z" />
-                        </svg></div>
-                </a>
-            </div>
-            <div style="margin-top: 3rem;">
-                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="btn btn-outline-dark">Follow Us
-                    On Instagram</a>
-            </div>
-        </section>
-
-        <!-- VISIT US & HOURS -->
-        <section class="visit" id="visit">
-            <div class="visit-container reveal">
-                <div class="location-box">
-                    <span class="eyebrow">Location</span>
-                    <h2 class="section-title">Drop By</h2>
-
-                    <div class="loc-card">
-                        <h4>Address</h4>
-                        <p>14 Carrot Cafe<br>2305 Eastlake Ave E<br>Seattle, WA 98102</p>
-                    </div>
-
-                    <div class="loc-card">
-                        <h4>Contact</h4>
-                        <p>+1 206-324-1442</p>
-                    </div>
-
-                    <div class="loc-actions">
-                        <a href="https://www.google.com/maps/dir//14+Carrot+Cafe+2305+Eastlake+Ave+E+Seattle+WA"
-                            target="_blank" class="btn">Get Directions</a>
-                        <a href="tel:+12063241442" class="btn btn-outline-dark">Call Us</a>
-                    </div>
-                </div>
-
-                <div class="hours-box">
-                    <div id="status-badge" class="status-badge">
-                        <div class="status-dot"></div>
-                        <span id="status-text">Checking Hours...</span>
-                    </div>
-
-                    <h3>Hours</h3>
-                    <ul class="hours-list" id="hours-list">
-                        <li data-day="1"><span>Monday</span><span>8:00 AM — 2:00 PM</span></li>
-                        <li data-day="2" class="closed"><span>Tuesday</span><span>Closed</span></li>
-                        <li data-day="3"><span>Wednesday</span><span>8:00 AM — 2:00 PM</span></li>
-                        <li data-day="4"><span>Thursday</span><span>8:00 AM — 2:00 PM</span></li>
-                        <li data-day="5"><span>Friday</span><span>8:00 AM — 2:00 PM</span></li>
-                        <li data-day="6"><span>Saturday</span><span>8:00 AM — 2:00 PM</span></li>
-                        <li data-day="0"><span>Sunday</span><span>8:00 AM — 2:00 PM</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- MAP -->
-        <div class="map-wrapper">
-            <iframe src="https://www.google.com/maps?q=14+Carrot+Cafe+2305+Eastlake+Ave+E+Seattle+WA&output=embed"
-                title="Google Maps Location of 14 Carrot Cafe" loading="lazy"></iframe>
-        </div>
     </main>
-
-    <!-- FOOTER -->
-    <footer>
+<footer>
         <div class="footer-grid">
             <div class="footer-brand">
                 <img src="images/logo-branco.png" alt="14 Carrot Cafe Logo" style="height: 50px;">
@@ -2008,11 +1717,11 @@
             <div class="footer-col">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#story">Our Story</a></li>
+                    <li><a href="index.html#menu">Menu</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
                 </ul>
             </div>
 
@@ -2028,7 +1737,7 @@
                 <h4>Hungry?</h4>
                 <p style="color: #888; font-size: 0.95rem; margin-bottom: 1rem;">Order ahead or join us for brunch
                     today.</p>
-                <a href="#menu" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;"
+                <a href="index.html#menu" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;"
                     onclick="alert('Online ordering placeholder')">Order Online</a>
             </div>
         </div>
@@ -2038,8 +1747,7 @@
             <span class="footer-preview-tag">Concept Website Preview</span>
         </div>
     </footer>
-
-    <!-- LIGHTBOX -->
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
         <div class="lightbox-img-wrapper">
             <span class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</span>
@@ -2049,23 +1757,21 @@
         </div>
     </div>
 
-    <!-- SCRIPTS -->
     <script>
-        function initSite() {
-
+        document.addEventListener('DOMContentLoaded', () => {
             /* --- HEADER & SCROLL --- */
             const header = document.getElementById('main-header');
-            const logoDark = document.getElementById('logo-dark');
             const progressBar = document.getElementById('scroll-progress');
-
+            
+            if (header) {
+                header.classList.add('scrolled');
+                header.style.backgroundColor = 'var(--color-light)';
+            }
+            
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) header.classList.add('scrolled');
-                else header.classList.remove('scrolled');
-
-                // Progress bar
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                progressBar.style.width = (winScroll / height) * 100 + "%";
+                if (progressBar) progressBar.style.width = (winScroll / height) * 100 + "%";
             });
 
             /* --- MOBILE MENU --- */
@@ -2074,205 +1780,68 @@
             const mobLinks = document.querySelectorAll('.mob-link');
 
             function toggleMenu() {
+                if (!mobileMenu) return;
                 const isActive = mobileMenu.classList.contains('active');
                 mobileMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-                hamburger.setAttribute('aria-expanded', !isActive);
+                if (hamburger) {
+                    hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', !isActive);
+                }
                 document.body.style.overflow = isActive ? 'auto' : 'hidden';
             }
 
-            hamburger.addEventListener('click', toggleMenu);
-            mobLinks.forEach(link => link.addEventListener('click', toggleMenu));
-
-            /* --- SCROLL REVEAL (INTERSECTION OBSERVER) --- */
-            const revealElements = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            revealElements.forEach(el => observer.observe(el));
-
-            /* --- MENU TABS FILTERING --- */
-            const tabs = document.querySelectorAll('.menu-tab');
-            const items = document.querySelectorAll('.menu-item-card');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Update active tab
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-
-                    const filter = tab.getAttribute('data-filter');
-
-                    items.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.classList.remove('hidden');
-                            // Small timeout to allow display:block to apply before opacity transition
-                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 10);
-                        } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'translateY(10px)';
-                            setTimeout(() => { item.classList.add('hidden'); }, 400); // Wait for transition
-                        }
-                    });
-                });
-            });
+            if (hamburger) hamburger.addEventListener('click', toggleMenu);
+            if (mobLinks) mobLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
             /* --- LIGHTBOX W/ NAVIGATION --- */
             const lightbox = document.getElementById('lightbox');
             const lbImg = document.getElementById('lightbox-img');
-            const galleryItems = document.querySelectorAll('.gallery-item');
+            const galleryItems = document.querySelectorAll('.masonry-item');
             let currentImgIndex = 0;
             const imagesSrc = Array.from(galleryItems).map(item => item.querySelector('img').src);
 
             function openLightbox(index) {
                 currentImgIndex = index;
-                lbImg.src = imagesSrc[currentImgIndex];
-                lightbox.classList.add('active');
-                lightbox.setAttribute('aria-hidden', 'false');
+                if (lbImg) lbImg.src = imagesSrc[currentImgIndex];
+                if (lightbox) {
+                    lightbox.classList.add('active');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                }
                 document.body.style.overflow = 'hidden';
             }
 
             function closeLightbox() {
-                lightbox.classList.remove('active');
-                lightbox.setAttribute('aria-hidden', 'true');
+                if (lightbox) {
+                    lightbox.classList.remove('active');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                }
                 document.body.style.overflow = 'auto';
             }
 
             function navLightbox(direction) {
                 currentImgIndex = (currentImgIndex + direction + imagesSrc.length) % imagesSrc.length;
-                lbImg.src = imagesSrc[currentImgIndex];
+                if (lbImg) lbImg.src = imagesSrc[currentImgIndex];
             }
 
             galleryItems.forEach((item, index) => {
                 item.addEventListener('click', () => openLightbox(index));
             });
 
-            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-            document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); navLightbox(-1); });
-            document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); navLightbox(1); });
-
-            lightbox.addEventListener('click', (e) => {
+            if(document.getElementById('lightbox-close')) document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            if(document.getElementById('lightbox-prev')) document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); navLightbox(-1); });
+            if(document.getElementById('lightbox-next')) document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); navLightbox(1); });
+            
+            if(lightbox) lightbox.addEventListener('click', (e) => {
                 if (e.target === lightbox) closeLightbox();
             });
 
             document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('active')) return;
+                if (!lightbox || !lightbox.classList.contains('active')) return;
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowLeft') navLightbox(-1);
                 if (e.key === 'ArrowRight') navLightbox(1);
             });
-
-            /* --- REVIEWS CAROUSEL --- */
-            const track = document.getElementById('carousel');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.dot');
-            let currentIndex = 0;
-            let startX = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
-            let isDragging = false;
-
-            function setPositionByIndex() {
-                currentTranslate = currentIndex * -100;
-                track.style.transform = `translateX(${currentTranslate}%)`;
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === currentIndex);
-                });
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
-                });
-            }
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
-                    setPositionByIndex();
-                });
-            });
-
-            // Touch support for carousel
-            track.addEventListener('touchstart', touchStart);
-            track.addEventListener('touchend', touchEnd);
-            track.addEventListener('touchmove', touchMove);
-            track.addEventListener('mousedown', touchStart);
-            track.addEventListener('mouseup', touchEnd);
-            track.addEventListener('mouseleave', () => { if (isDragging) touchEnd() });
-            track.addEventListener('mousemove', touchMove);
-
-            function touchStart(event) {
-                isDragging = true;
-                startX = getPositionX(event);
-            }
-            function touchMove(event) {
-                if (isDragging) {
-                    const currentPosition = getPositionX(event);
-                    const diff = currentPosition - startX;
-                    // Simple threshold to prevent clicking while swiping
-                }
-            }
-            function touchEnd(event) {
-                isDragging = false;
-                const endX = event.type.includes('mouse') ? event.clientX : event.changedTouches[0].clientX;
-                const diff = endX - startX;
-
-                if (diff < -50 && currentIndex < slides.length - 1) currentIndex += 1;
-                else if (diff > 50 && currentIndex > 0) currentIndex -= 1;
-
-                setPositionByIndex();
-            }
-            function getPositionX(event) {
-                return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
-            }
-
-            /* --- DYNAMIC OPEN HOURS --- */
-            function checkHours() {
-                // Pacific Time (Seattle)
-                const options = { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: 'numeric', hour12: false, weekday: 'numeric' };
-                const formatter = new Intl.DateTimeFormat([], options);
-
-                // Get current date/time in Seattle
-                const now = new Date();
-                const seattleDate = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-                const day = seattleDate.getDay(); // 0 = Sun, 1 = Mon, 2 = Tue...
-                const hour = seattleDate.getHours();
-
-                const badge = document.getElementById('status-badge');
-                const text = document.getElementById('status-text');
-                const listItems = document.querySelectorAll('#hours-list li');
-
-                // Highlight today
-                listItems.forEach(li => {
-                    if (parseInt(li.getAttribute('data-day')) === day) li.classList.add('today');
-                });
-
-                // Logic: Open Wed-Mon, 8 AM - 2 PM (14:00). Closed Tuesday (day 2).
-                if (day === 2) {
-                    badge.className = 'status-badge status-closed';
-                    text.textContent = 'Closed Today';
-                } else if (hour >= 8 && hour < 14) {
-                    badge.className = 'status-badge status-open';
-                    text.textContent = 'Open Now — Closes at 2 PM';
-                } else {
-                    badge.className = 'status-badge status-closed';
-                    if (hour < 8) text.textContent = 'Closed — Opens at 8 AM';
-                    else text.textContent = 'Closed — Opens Tomorrow 8 AM';
-                }
-            }
-            checkHours();
-
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initSite);
-        } else {
-            initSite();
-        }
+        });
     </script>
 </body>
-
 </html>
