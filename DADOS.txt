@@ -1,0 +1,22 @@
+### 📝 DADOS DO NEGÓCIO ALVO
+
+Nome: [NOME]
+
+Links de Referência:
+- Site antigo: [LINK]
+- Instagram: [LINK]
+
+Endereço e Google Maps: [ENDEREÇO OU LINK]
+
+Arquivos Fornecidos (usar EXATAMENTE esses nomes):
+- Logo: [ex: logo.png] (se não tiver, crie)
+- Logo versão clara (se houver): [ex: logo-branco.png]
+- Favicon: [ex: favicon.png] (se não tiver, crie)
+- Vídeo Background (se houver): [ex: video-nome.mp4]
+- Imagem "style" (referência de estética geral, se houver): [ex: style.png]
+- Imagens de referência (prints de redes sociais, flyers, fotos do local, menu): [listar nomes]
+
+Informações do Google Maps e Avaliações (diferenciais, itens mais vendidos, horário):
+[RESUMO]
+
+TODAS AS IMAGENS FICAM EM "images" E TODOS OS VÍDEOS EM "videos"

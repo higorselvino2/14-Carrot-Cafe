@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="14 Carrot Cafe is a neighborhood breakfast tradition in Seattle serving fresh, hearty comfort food and fresh juices.">
+    
+    <title>14 Carrot Cafe | Breakfast & Brunch in Seattle</title>
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="14 Carrot Cafe | Breakfast & Brunch in Seattle">
+    <meta property="og:description" content="A neighborhood breakfast tradition serving fresh, hearty comfort food.">
+    <meta property="og:image" content="images/722707482_1605650948236405_7819599499376383674_n.jpg">
+    <meta property="og:url" content="https://14carrotcafe.com">
+    <meta property="og:type" content="restaurant">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "14 Carrot Cafe",
+      "image": "images/logo.png",
+      "url": "https://14carrotcafe.com",
+      "telephone": "+1 206-324-1442",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2305 Eastlake Ave E",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA",
+        "postalCode": "98102",
+        "addressCountry": "US"
+      },
+      "servesCuisine": "American Breakfast & Brunch",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <style>
+        :root {
+            /* Brand Colors */
+            --color-primary: #f4b41a; /* Vibrant Yellow */
+            --color-primary-dark: #dca010;
+            --color-dark: #140f0c; /* Deep, rich brown-black */
+            --color-light: #fdfbf7; /* Warm cream */
+            --color-gray: #f3efe8; /* Warm gray for alternate sections */
+            --color-text-body: #4a423d; /* Softer text color for better reading */
+            
+            /* Typography */
+            --font-display: 'Fraunces', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Utils */
+            --transition-smooth: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-fast: 0.3s ease;
+            --container-width: 1300px;
+        }
+
+        /* --- CSS RESET & BASE --- */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); color: var(--color-text-body); background-color: var(--color-light); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--color-dark); line-height: 1.1; font-weight: 400; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { border: none; background: none; font-family: inherit; cursor: pointer; }
+        ul { list-style: none; }
+
+        /* Accessibility Focus */
+        :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+        }
+
+        /* Film Grain Overlay */
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99998; opacity: 0.04;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+
+        /* Preview Badge */
+        .preview-badge {
+            position: fixed; bottom: 20px; left: 20px; background-color: rgba(20, 15, 12, 0.9); color: var(--color-primary); padding: 8px 16px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; z-index: 99999; backdrop-filter: blur(5px); border: 1px solid rgba(244, 180, 26, 0.2); pointer-events: none;
+        }
+        @media (max-width: 768px) { .preview-badge { bottom: 10px; left: 10px; font-size: 0.65rem; } }
+
+        /* Typography Utilities */
+        .eyebrow {
+            display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 1.5rem; position: relative;
+        }
+        .eyebrow::before, .eyebrow::after { content: ''; position: absolute; top: 50%; width: 30px; height: 1px; background-color: var(--color-primary); }
+        .eyebrow::before { left: -45px; } .eyebrow::after { right: -45px; }
+        
+        .section-title { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+        .text-center { text-align: center; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 1.2rem 2.5rem; background-color: var(--color-primary); color: var(--color-dark); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: all var(--transition-fast); border: 1px solid var(--color-primary); position: relative; overflow: hidden;
+        }
+        .btn:hover { background-color: transparent; color: var(--color-primary); }
+        .btn-outline { background-color: transparent; color: var(--color-light); border-color: var(--color-light); }
+        .btn-outline:hover { background-color: var(--color-light); color: var(--color-dark); }
+        .btn-outline-dark { background-color: transparent; color: var(--color-dark); border-color: var(--color-dark); }
+        .btn-outline-dark:hover { background-color: var(--color-dark); color: var(--color-primary); }
+
+        /* Scroll Progress */
+        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background-color: var(--color-primary); z-index: 10001; transition: width 0.1s; }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 10000; transition: background-color var(--transition-smooth), padding var(--transition-smooth);
+        }
+        header::before {
+            content:''; position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); z-index:-1; transition: opacity var(--transition-smooth); pointer-events: none;
+        }
+        header.scrolled {
+            background-color: rgba(253, 251, 247, 0.98); padding: 1rem 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); backdrop-filter: blur(10px);
+        }
+        header.scrolled::before { opacity: 0; }
+        
+        .logo-container img { height: 60px; transition: opacity var(--transition-fast); }
+        .logo-light { position: absolute; opacity: 1; }
+        .logo-dark { opacity: 0; }
+        header.scrolled .logo-light { opacity: 0; }
+        header.scrolled .logo-dark { opacity: 1; filter: brightness(0); } /* Ensuring it's very dark */
+        
+        .desktop-nav { display: none; gap: 2.5rem; align-items: center; margin-left: auto; margin-right: 3rem; }
+        .desktop-nav a {
+            color: var(--color-light); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; position: relative; transition: color var(--transition-fast);
+        }
+        .desktop-nav a::after {
+            content: ''; position: absolute; bottom: -6px; left: 0; width: 0%; height: 1px; background-color: var(--color-primary); transition: width 0.3s;
+        }
+        .desktop-nav a:hover::after { width: 100%; }
+        header.scrolled .desktop-nav a { color: var(--color-dark); }
+        header.scrolled .desktop-nav a:hover { color: var(--color-primary-dark); }
+
+        .header-cta { display: none; }
+        header.scrolled .header-cta { display: flex; padding: 0.8rem 1.5rem; font-size: 0.8rem; }
+
+        .hamburger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10002; width: 30px; height: 24px; position: relative; }
+        .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--color-light); transition: var(--transition-smooth); position: absolute; left: 0; }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 11px; }
+        .hamburger span:nth-child(3) { top: 22px; }
+        header.scrolled .hamburger span { background-color: var(--color-dark); }
+        
+        .hamburger.active span { background-color: var(--color-dark); }
+        .hamburger.active span:nth-child(1) { top: 11px; transform: rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: var(--color-primary); z-index: 10001; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .mobile-menu.active { opacity: 1; pointer-events: all; }
+        .mobile-nav { display: flex; flex-direction: column; gap: 2rem; text-align: center; }
+        .mobile-nav a {
+            font-family: var(--font-display); font-size: 2.5rem; color: var(--color-dark); transform: translateY(20px); opacity: 0; transition: all 0.4s ease;
+        }
+        .mobile-menu.active .mobile-nav a { transform: translateY(0); opacity: 1; }
+        .mobile-nav a:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-nav a:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-nav a:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-nav a:nth-child(4) { transition-delay: 0.4s; }
+        .mobile-nav a:nth-child(5) { transition-delay: 0.5s; }
+
+        @media (min-width: 1024px) {
+            .hamburger { display: none; }
+            .desktop-nav, .header-cta { display: flex; }
+        }
+
+        /* --- INTRO ANIMATION --- */
+        #intro-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: var(--color-light); z-index: 999999; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s ease;
+        }
+        #intro-logo { width: 150px; opacity: 0; transform: scale(0.9); animation: introFade 1.2s forwards; }
+        @keyframes introFade { 0% { opacity: 0; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.1); } }
+
+        /* --- HERO SECTION --- */
+        .hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: var(--color-dark); }
+        .hero-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; transform: scale(1.05); animation: slowZoom 25s ease-out infinite alternate; }
+        @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.05); } }
+        
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(20, 15, 12, 0.4) 0%, rgba(20, 15, 12, 0.2) 40%, rgba(20, 15, 12, 0.8) 100%); }
+        
+        .hero-content {
+            position: relative; z-index: 2; text-align: center; color: var(--color-light); max-width: 900px; padding: 0 2rem; margin-top: 5rem;
+            opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease;
+        }
+        .hero-content.reveal { opacity: 1; transform: translateY(0); }
+        
+        .hero-eyebrow { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 1.5rem; display: block; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .hero h1 { font-family: var(--font-display); font-size: clamp(3.5rem, 8vw, 7.5rem); line-height: 0.95; margin-bottom: 1.5rem; color: var(--color-light); text-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+        .hero p { font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 300; margin-bottom: 3rem; max-width: 650px; margin-left: auto; margin-right: auto; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        
+        .hero-ctas { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        
+        .hero-info { position: absolute; bottom: 40px; left: 5%; color: rgba(255,255,255,0.7); font-size: 0.85rem; letter-spacing: 0.1em; display: flex; gap: 2rem; z-index: 2; }
+        .hero-info span { display: flex; align-items: center; gap: 8px; }
+        
+        .scroll-down { position: absolute; bottom: 40px; right: 5%; color: var(--color-light); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; gap: 15px; z-index: 2; opacity: 0.7; writing-mode: vertical-rl; transform: rotate(180deg); transition: opacity 0.3s; }
+        .scroll-down::before { content: ''; width: 1px; height: 60px; background-color: var(--color-light); display: block; animation: stretch 2s infinite; transform-origin: top; }
+        @keyframes stretch { 0% { transform: scaleY(0.2); } 50% { transform: scaleY(1); } 100% { transform: scaleY(0.2); } }
+        
+        @media (max-width: 768px) {
+            .hero-info { display: none; }
+            .scroll-down { right: 50%; transform: translateX(50%) rotate(0); writing-mode: horizontal-tb; bottom: 30px; flex-direction: column; }
+            .scroll-down::before { transform-origin: top; }
+        }
+
+        /* --- OUR STORY (Editorial) --- */
+        .story { padding: 10rem 5%; background-color: var(--color-light); position: relative; overflow: hidden; }
+        .story-container { max-width: var(--container-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        
+        .story-images { position: relative; width: 100%; aspect-ratio: 4/5; }
+        .story-img-main { width: 85%; height: 90%; object-fit: cover; position: absolute; top: 0; left: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-radius: 2px; }
+        .story-img-sub { width: 50%; aspect-ratio: 1/1; object-fit: cover; position: absolute; bottom: 0; right: 0; border: 10px solid var(--color-light); box-shadow: 0 30px 60px rgba(0,0,0,0.15); border-radius: 2px; }
+        
+        .story-content h2 { font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 2rem; }
+        .story-content p { font-size: 1.15rem; margin-bottom: 1.5rem; }
+        
+        .story-stats { display: flex; gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); }
+        .stat-item { display: flex; flex-direction: column; }
+        .stat-number { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-primary-dark); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #888; }
+        
+        @media (max-width: 960px) {
+            .story-container { grid-template-columns: 1fr; gap: 4rem; }
+            .story-images { aspect-ratio: 1/1; width: 90%; margin: 0 auto; }
+            .story-stats { justify-content: center; text-align: center; }
+            .story-content { text-align: center; }
+            .eyebrow::before, .eyebrow::after { display: none; }
+        }
+
+        /* --- MENU SECTION (Tabbed) --- */
+        .menu-section { padding: 8rem 5%; background-color: var(--color-gray); }
+        .menu-wrapper { max-width: 1000px; margin: 0 auto; }
+        
+        .menu-header { text-align: center; margin-bottom: 4rem; }
+        
+        .menu-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 4rem; }
+        .menu-tab { background: none; border: 1px solid rgba(0,0,0,0.1); padding: 0.6rem 1.5rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #666; border-radius: 30px; transition: all var(--transition-fast); }
+        .menu-tab.active { background-color: var(--color-dark); color: var(--color-primary); border-color: var(--color-dark); }
+        .menu-tab:hover:not(.active) { border-color: var(--color-dark); color: var(--color-dark); }
+        
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 5rem; }
+        @media (max-width: 768px) { .menu-grid { grid-template-columns: 1fr; gap: 2rem; } }
+        
+        .menu-item-card { opacity: 1; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease; }
+        .menu-item-card.hidden { display: none; opacity: 0; transform: translateY(10px); }
+        
+        .menu-item-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+        .menu-item-name { font-family: var(--font-display); font-size: 1.4rem; color: var(--color-dark); }
+        .menu-item-dots { flex-grow: 1; border-bottom: 1px dotted rgba(0,0,0,0.2); margin: 0 10px; }
+        .menu-item-price { font-weight: 600; font-size: 1.1rem; color: var(--color-primary-dark); }
+        
+        .menu-item-desc { font-size: 0.95rem; color: #666; margin-bottom: 0.5rem; }
+        .menu-item-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 2px 6px; background-color: rgba(244, 180, 26, 0.2); color: var(--color-primary-dark); border-radius: 2px; }
+
+        .menu-cta-container { text-align: center; margin-top: 5rem; }
+
+        /* --- FOOD HIGHLIGHTS --- */
+        .highlights { padding: 2rem 5% 8rem; background-color: var(--color-gray); }
+        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: var(--container-width); margin: 0 auto; }
+        .highlight-card { position: relative; overflow: hidden; aspect-ratio: 3/4; border-radius: 2px; cursor: crosshair; }
+        .highlight-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .highlight-card:hover img { transform: scale(1.05); }
+        .highlight-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,15,12,0.9) 0%, rgba(20,15,12,0) 60%); padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end; }
+        .highlight-tag { color: var(--color-primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .highlight-card h3 { color: var(--color-light); font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .highlight-card p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+
+        /* --- GALLERY --- */
+        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); background-color: var(--color-dark); }
+        .gallery-item { aspect-ratio: 1/1; overflow: hidden; position: relative; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.4s ease; }
+        .gallery-overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.4); opacity: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s ease; pointer-events: none; }
+        .gallery-icon { color: var(--color-light); font-size: 2rem; }
+        .gallery-item:hover img { transform: scale(1.08); filter: brightness(0.8); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        @media (max-width: 1024px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+
+        /* --- LIGHTBOX --- */
+        .lightbox { position: fixed; inset: 0; background-color: rgba(15,10,8,0.98); z-index: 100000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; backdrop-filter: blur(10px); }
+        .lightbox.active { opacity: 1; pointer-events: all; }
+        .lightbox-img-wrapper { position: relative; max-width: 90vw; max-height: 85vh; }
+        .lightbox img { max-width: 100%; max-height: 85vh; object-fit: contain; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: scale(0.95); transition: transform 0.4s ease; }
+        .lightbox.active img { transform: scale(1); }
+        
+        .lightbox-close { position: absolute; top: -40px; right: 0; color: #fff; font-size: 2.5rem; cursor: pointer; line-height: 1; }
+        .lightbox-close:hover { color: var(--color-primary); }
+        
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #fff; font-size: 3rem; cursor: pointer; opacity: 0.5; transition: all 0.3s; padding: 20px; }
+        .lightbox-nav:hover { opacity: 1; color: var(--color-primary); }
+        .lightbox-prev { left: -80px; }
+        .lightbox-next { right: -80px; }
+        @media (max-width: 768px) {
+            .lightbox-prev { left: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+            .lightbox-next { right: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+            .lightbox-close { top: 20px; right: 20px; z-index: 2; }
+        }
+
+        /* --- REVIEWS CAROUSEL --- */
+        .reviews { padding: 8rem 5%; background-color: var(--color-dark); color: var(--color-light); text-align: center; position: relative; overflow: hidden; }
+        .reviews-container { max-width: 800px; margin: 0 auto; position: relative; }
+        
+        .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); cursor: grab; }
+        .carousel-track:active { cursor: grabbing; }
+        .carousel-slide { min-width: 100%; padding: 0 20px; opacity: 0.4; transition: opacity 0.5s; }
+        .carousel-slide.active { opacity: 1; }
+        
+        .stars { color: var(--color-primary); font-size: 1.5rem; margin-bottom: 2rem; letter-spacing: 5px; }
+        .review-quote { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-style: italic; font-weight: 300; line-height: 1.4; margin-bottom: 2rem; }
+        .review-author { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-primary-dark); }
+        .review-source { font-size: 0.75rem; color: #888; margin-top: 5px; }
+        
+        .carousel-dots { display: flex; justify-content: center; gap: 10px; margin-top: 3rem; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s; }
+        .dot.active { background-color: var(--color-primary); transform: scale(1.3); }
+
+        /* --- INSTAGRAM / SOCIAL PROOF --- */
+        .instagram { padding: 6rem 5% 0; background-color: var(--color-light); text-align: center; }
+        .insta-header { margin-bottom: 3rem; }
+        .insta-header h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 0.5rem; }
+        
+        .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; }
+        .insta-item { aspect-ratio: 1/1; position: relative; overflow: hidden; display: block; }
+        .insta-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.2); transition: all 0.4s; }
+        .insta-overlay { position: absolute; inset: 0; background: rgba(244, 180, 26, 0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+        .insta-overlay svg { width: 30px; height: 30px; fill: var(--color-dark); }
+        .insta-item:hover img { filter: grayscale(0); transform: scale(1.05); }
+        .insta-item:hover .insta-overlay { opacity: 1; }
+        @media (max-width: 1024px) { .insta-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        /* --- VISIT US & HOURS --- */
+        .visit { padding: 8rem 5%; background-color: var(--color-light); }
+        .visit-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        
+        .hours-box { background-color: var(--color-gray); padding: 4rem; border-radius: 2px; }
+        .hours-box h3 { font-size: 2rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem; }
+        .hours-list { list-style: none; }
+        .hours-list li { display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 1.1rem; }
+        .hours-list li.closed { color: #999; }
+        .hours-list li.today { font-weight: 600; color: var(--color-primary-dark); }
+        
+        .status-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background-color: rgba(0,0,0,0.05); border-radius: 30px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; }
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .status-open .status-dot { background-color: #2e8b57; box-shadow: 0 0 10px #2e8b57; animation: pulseOpen 2s infinite; }
+        .status-closed .status-dot { background-color: #b22222; }
+        @keyframes pulseOpen { 0% { box-shadow: 0 0 0 0 rgba(46, 139, 87, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(46, 139, 87, 0); } 100% { box-shadow: 0 0 0 0 rgba(46, 139, 87, 0); } }
+
+        .location-box { display: flex; flex-direction: column; justify-content: center; }
+        .loc-card { margin-bottom: 2rem; }
+        .loc-card h4 { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #888; margin-bottom: 0.5rem; }
+        .loc-card p { font-size: 1.2rem; margin-bottom: 1rem; }
+        .loc-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        
+        @media (max-width: 900px) { .visit-container { grid-template-columns: 1fr; } .hours-box { padding: 3rem 2rem; } }
+
+        /* --- MAP --- */
+        .map-wrapper { width: 100%; height: 400px; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: none; filter: grayscale(1) contrast(1.1); }
+
+        /* --- FOOTER --- */
+        footer { background-color: var(--color-dark); color: #fff; padding: 6rem 5% 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; max-width: var(--container-width); margin: 0 auto 5rem; }
+        
+        .footer-brand p { color: #999; margin: 1.5rem 0; max-width: 300px; }
+        .footer-socials { display: flex; gap: 1rem; }
+        .footer-socials a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; transition: all 0.3s; }
+        .footer-socials a:hover { background-color: var(--color-primary); color: var(--color-dark); border-color: var(--color-primary); }
+        
+        .footer-col h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; margin-bottom: 1.5rem; }
+        .footer-col ul li { margin-bottom: 0.8rem; }
+        .footer-col a { color: #888; transition: color 0.3s; font-size: 0.95rem; }
+        .footer-col a:hover { color: var(--color-primary); }
+        
+        .footer-bottom { max-width: var(--container-width); margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #666; }
+        .footer-preview-tag { color: var(--color-primary-dark); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        /* Utils */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+    <div id="scroll-progress"></div>
+    <div class="preview-badge">Website Preview</div>
+
+    <!-- Intro Animation -->
+    <div id="intro-overlay">
+        <img src="images/logo.png" alt="14 Carrot Cafe" id="intro-logo">
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <a href="#home" class="logo-container" aria-label="Home">
+            <img src="images/logo-branco.png" alt="14 Carrot Cafe Logo" class="logo-light" id="logo-light">
+            <img src="images/logo.png" alt="14 Carrot Cafe Logo" class="logo-dark" id="logo-dark">
+        </a>
+        
+        <nav class="desktop-nav">
+            <a href="#story">Our Story</a>
+            <a href="#menu">Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#visit">Visit Us</a>
+        </nav>
+
+        <a href="#menu" class="btn header-cta" onclick="alert('Online ordering integration placeholder.')">Order Online</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-nav">
+            <a href="#story" class="mob-link">Our Story</a>
+            <a href="#menu" class="mob-link">Menu</a>
+            <a href="#gallery" class="mob-link">Gallery</a>
+            <a href="#reviews" class="mob-link">Reviews</a>
+            <a href="#visit" class="mob-link">Visit Us</a>
+        </nav>
+        <div style="margin-top: 3rem;">
+            <a href="#menu" class="btn btn-outline-dark mob-link" onclick="alert('Online ordering placeholder')">Order Online</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <img src="images/722707482_1605650948236405_7819599499376383674_n.jpg" alt="14 Carrot Cafe Exterior at Night" class="hero-img">
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content" id="hero-content">
+                <span class="hero-eyebrow">A Seattle Neighborhood Favorite</span>
+                <h1>A Breakfast<br>Tradition</h1>
+                <p>Serving hearty, home-cooked comfort food and fresh juices in a warm, welcoming community space.</p>
+                <div class="hero-ctas">
+                    <a href="#menu" class="btn">View Menu</a>
+                    <a href="#visit" class="btn btn-outline">Get Directions</a>
+                </div>
+            </div>
+
+            <div class="hero-info">
+                <span>📍 2305 Eastlake Ave E, Seattle</span>
+                <span>⏱️ Open Wed—Mon at 8AM</span>
+            </div>
+
+            <div class="scroll-down">Scroll</div>
+        </section>
+
+        <!-- OUR STORY -->
+        <section class="story" id="story">
+            <div class="story-container reveal">
+                <div class="story-images">
+                    <img src="images/670771379_18193697089362583_6752190593190879155_n.jpg" alt="Cafe atmosphere" class="story-img-main" loading="lazy">
+                    <img src="images/566915757_18174733108362583_6469930787519145683_n.jpg" alt="Fresh ingredients" class="story-img-sub" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <span class="eyebrow">The Flagship</span>
+                    <h2>More Than Just a Cafe</h2>
+                    <p>Since we opened our doors, the 14 Carrot Cafe has been a staple in the Seattle community. It's a place where people from all walks of life come to enjoy a bite and a respite from the hustle and bustle of the city.</p>
+                    <p>Whether you're stopping by for our famous Corned Beef Hash, fresh carrot juice, or our phenomenal gluten-free options, we believe in treating every guest like family.</p>
+                    
+                    <div class="story-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1976</span>
+                            <span class="stat-label">Est. Seattle</span> <!-- Placeholder year, easily editable -->
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Fresh Ingredients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU -->
+        <section class="menu-section" id="menu">
+            <div class="menu-wrapper reveal">
+                <div class="menu-header">
+                    <span class="eyebrow">Handcrafted</span>
+                    <h2 class="section-title">Our Menu</h2>
+                </div>
+
+                <!-- Tabs -->
+                <div class="menu-tabs">
+                    <button class="menu-tab active" data-filter="all">All</button>
+                    <button class="menu-tab" data-filter="breakfast">Breakfast</button>
+                    <button class="menu-tab" data-filter="sandwiches">Sandwiches</button>
+                    <button class="menu-tab" data-filter="drinks">Drinks</button>
+                </div>
+
+                <!-- Menu Items -->
+                <div class="menu-grid" id="menu-grid">
+                    <!-- Item -->
+                    <div class="menu-item-card" data-category="breakfast">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Corned Beef Hash</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">A home run every time. Savory, deeply satisfying, served with eggs and toast.</p>
+                        <span class="menu-item-tag">Signature</span>
+                    </div>
+
+                    <div class="menu-item-card" data-category="breakfast">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Florentine Benedict</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">Classic poached eggs with spinach and rich hollandaise sauce.</p>
+                    </div>
+
+                    <div class="menu-item-card" data-category="breakfast">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Biscuits N Gravy</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">Also available with whole wheat biscuits.</p>
+                    </div>
+
+                    <div class="menu-item-card" data-category="breakfast">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Carrot Cake Pancakes</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">Absolutely incredible, a must get sweet morning treat.</p>
+                        <span class="menu-item-tag">New Favorite</span>
+                    </div>
+
+                    <div class="menu-item-card" data-category="sandwiches">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Le' Cubano</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">The ultimate Cuban Breakfast Sandwich pressed to perfection.</p>
+                    </div>
+
+                    <div class="menu-item-card" data-category="sandwiches">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Gyro Sandwich</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">Freshly made with our special homemade tzatziki sauce.</p>
+                    </div>
+
+                    <div class="menu-item-card" data-category="drinks">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Mimosa Carafe</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">Consistently spot on. Perfect for sharing with the table.</p>
+                        <span class="menu-item-tag">Popular</span>
+                    </div>
+
+                    <div class="menu-item-card" data-category="drinks">
+                        <div class="menu-item-top">
+                            <h3 class="menu-item-name">Fresh Carrot Juice</h3>
+                            <div class="menu-item-dots"></div>
+                            <span class="menu-item-price">$XX</span>
+                        </div>
+                        <p class="menu-item-desc">Our namesake, pressed fresh daily in-house.</p>
+                    </div>
+                </div>
+
+                <div class="menu-cta-container">
+                    <button class="btn btn-outline-dark" onclick="alert('PDF Menu link placeholder')">View Full Menu PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOD HIGHLIGHTS -->
+        <section class="highlights">
+            <div class="highlights-grid reveal">
+                <div class="highlight-card">
+                    <img src="images/Corned Beef Hash1.jpg" alt="Corned Beef Hash" loading="lazy">
+                    <div class="highlight-overlay">
+                        <span class="highlight-tag">Signature Dish</span>
+                        <h3>Corned Beef Hash</h3>
+                        <p>Our famous savory classic.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="images/Florentine Benedict1.jpg" alt="Florentine Benedict" loading="lazy">
+                    <div class="highlight-overlay">
+                        <span class="highlight-tag">Brunch Favorite</span>
+                        <h3>Florentine Benedict</h3>
+                        <p>Perfectly poached every time.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="images/567300934_18174733129362583_1003618598991262765_n.jpg" alt="Pancakes" loading="lazy">
+                    <div class="highlight-overlay">
+                        <span class="highlight-tag">Sweet Mornings</span>
+                        <h3>Pancakes</h3>
+                        <p>Fluffy, golden, and comforting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-item" data-index="0"><img src="images/Bloody Mary1.jpg" alt="Bloody Mary" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+            <div class="gallery-item" data-index="1"><img src="images/mimosas1.jpg" alt="Mimosas" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+            <div class="gallery-item" data-index="2"><img src="images/681312342_18194576512362583_1006122360286569549_n.jpg" alt="Fresh Plates" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+            <div class="gallery-item" data-index="3"><img src="images/566568936_18174733120362583_5656510298398324488_n.jpg" alt="Cafe Interior" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+            
+            <div class="gallery-item" data-index="4"><img src="images/703924105_1586837786784388_6557480021085142697_n.jpg" alt="Coffee Pour" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+            <div class="gallery-item" data-index="5"><img src="images/Mimosa Carafe1.jpg" alt="Mimosa Carafe" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+            <div class="gallery-item" data-index="6"><img src="images/605827491_1457523919715776_5207001130027318129_n.jpg" alt="Food Detail" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+            <div class="gallery-item" data-index="7"><img src="images/724597732_18199899430362583_1886354497412911977_n.jpg" alt="Exterior" loading="lazy"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+        </section>
+
+        <!-- REVIEWS CAROUSEL -->
+        <section class="reviews" id="reviews">
+            <div class="reviews-container reveal">
+                <span class="eyebrow">Guestbook</span>
+                
+                <div class="carousel-track" id="carousel">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide active">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-quote">"My go-to favorite is the corned beef and hash—it’s always a home run. Great food, warm family-friendly vibes, and a welcoming atmosphere every time."</p>
+                        <div class="review-author">Dometios Tziotis</div>
+                        <div class="review-source">Google Review</div>
+                    </div>
+                    <!-- Slide 2 (Placeholder example for preview) -->
+                    <div class="carousel-slide">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-quote">"[Placeholder Review] The fresh carrot juice is absolutely incredible. Best breakfast spot in the neighborhood by far!"</p>
+                        <div class="review-author">[Add Name]</div>
+                        <div class="review-source">Yelp Review</div>
+                    </div>
+                </div>
+
+                <div class="carousel-dots" id="carousel-dots">
+                    <div class="dot active" data-slide="0"></div>
+                    <div class="dot" data-slide="1"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM / SOCIAL PROOF -->
+        <section class="instagram">
+            <div class="insta-header reveal">
+                <span class="eyebrow">Follow Along</span>
+                <h2>@14carrotcafe</h2>
+            </div>
+            <div class="insta-grid">
+                <!-- Using existing images to simulate Instagram feed -->
+                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item">
+                    <img src="images/568143447_18174733156362583_8333439003938709895_n.jpg" alt="Instagram Post" loading="lazy">
+                    <div class="insta-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img src="images/670771379_18193697089362583_6752190593190879155_n.jpg" alt="Instagram Post" loading="lazy"><div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></a>
+                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img src="images/Corned Beef Hash1.jpg" alt="Instagram Post" loading="lazy"><div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c...z"/></svg></div></a>
+                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img src="images/703924105_1586837786784388_6557480021085142697_n.jpg" alt="Instagram Post" loading="lazy"><div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c...z"/></svg></div></a>
+                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img src="images/mimosas1.jpg" alt="Instagram Post" loading="lazy"><div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c...z"/></svg></div></a>
+                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="insta-item"><img src="images/566568936_18174733120362583_5656510298398324488_n.jpg" alt="Instagram Post" loading="lazy"><div class="insta-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c...z"/></svg></div></a>
+            </div>
+            <div style="margin-top: 3rem;">
+                <a href="https://www.instagram.com/14carrotcafe/" target="_blank" class="btn btn-outline-dark">Follow Us On Instagram</a>
+            </div>
+        </section>
+
+        <!-- VISIT US & HOURS -->
+        <section class="visit" id="visit">
+            <div class="visit-container reveal">
+                <div class="location-box">
+                    <span class="eyebrow">Location</span>
+                    <h2 class="section-title">Drop By</h2>
+                    
+                    <div class="loc-card">
+                        <h4>Address</h4>
+                        <p>14 Carrot Cafe<br>2305 Eastlake Ave E<br>Seattle, WA 98102</p>
+                    </div>
+                    
+                    <div class="loc-card">
+                        <h4>Contact</h4>
+                        <p>+1 206-324-1442</p>
+                    </div>
+
+                    <div class="loc-actions">
+                        <a href="https://www.google.com/maps/dir//14+Carrot+Cafe+2305+Eastlake+Ave+E+Seattle+WA" target="_blank" class="btn">Get Directions</a>
+                        <a href="tel:+12063241442" class="btn btn-outline-dark">Call Us</a>
+                    </div>
+                </div>
+
+                <div class="hours-box">
+                    <div id="status-badge" class="status-badge">
+                        <div class="status-dot"></div>
+                        <span id="status-text">Checking Hours...</span>
+                    </div>
+                    
+                    <h3>Hours</h3>
+                    <ul class="hours-list" id="hours-list">
+                        <li data-day="1"><span>Monday</span><span>8:00 AM — 2:00 PM</span></li>
+                        <li data-day="2" class="closed"><span>Tuesday</span><span>Closed</span></li>
+                        <li data-day="3"><span>Wednesday</span><span>8:00 AM — 2:00 PM</span></li>
+                        <li data-day="4"><span>Thursday</span><span>8:00 AM — 2:00 PM</span></li>
+                        <li data-day="5"><span>Friday</span><span>8:00 AM — 2:00 PM</span></li>
+                        <li data-day="6"><span>Saturday</span><span>8:00 AM — 2:00 PM</span></li>
+                        <li data-day="0"><span>Sunday</span><span>8:00 AM — 2:00 PM</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAP -->
+        <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps?q=14+Carrot+Cafe+2305+Eastlake+Ave+E+Seattle+WA&output=embed" title="Google Maps Location of 14 Carrot Cafe" loading="lazy"></iframe>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo-branco.png" alt="14 Carrot Cafe Logo" style="height: 50px;">
+                <p>A neighborhood breakfast tradition in Seattle serving fresh, hearty comfort food and daily pressed juices.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/14carrotcafe/" target="_blank" aria-label="Instagram">In</a>
+                    <a href="https://www.facebook.com/14CarrotCafe/" target="_blank" aria-label="Facebook">Fb</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>2305 Eastlake Ave E<br>Seattle, WA 98102</li>
+                    <li style="margin-top: 1rem;"><a href="tel:+12063241442">+1 206-324-1442</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hungry?</h4>
+                <p style="color: #888; font-size: 0.95rem; margin-bottom: 1rem;">Order ahead or join us for brunch today.</p>
+                <a href="#menu" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;" onclick="alert('Online ordering placeholder')">Order Online</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 14 Carrot Cafe. All rights reserved.</p>
+            <span class="footer-preview-tag">Concept Website Preview</span>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <div class="lightbox-img-wrapper">
+            <span class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</span>
+            <div class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</div>
+            <img src="" alt="Enlarged gallery view" id="lightbox-img">
+            <div class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- INTRO & PERFORMANCE --- */
+            const introOverlay = document.getElementById('intro-overlay');
+            if (!sessionStorage.getItem('introPlayed')) {
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    introOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        introOverlay.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        document.getElementById('hero-content').classList.add('reveal');
+                    }, 800);
+                    sessionStorage.setItem('introPlayed', 'true');
+                }, 1200);
+            } else {
+                introOverlay.style.display = 'none';
+                document.getElementById('hero-content').classList.add('reveal');
+            }
+
+            /* --- HEADER & SCROLL --- */
+            const header = document.getElementById('main-header');
+            const logoDark = document.getElementById('logo-dark');
+            const progressBar = document.getElementById('scroll-progress');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+                
+                // Progress bar
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                progressBar.style.width = (winScroll / height) * 100 + "%";
+            });
+
+            /* --- MOBILE MENU --- */
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobLinks = document.querySelectorAll('.mob-link');
+
+            function toggleMenu() {
+                const isActive = mobileMenu.classList.contains('active');
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', !isActive);
+                document.body.style.overflow = isActive ? 'auto' : 'hidden';
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            mobLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+            /* --- SCROLL REVEAL (INTERSECTION OBSERVER) --- */
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+
+            /* --- MENU TABS FILTERING --- */
+            const tabs = document.querySelectorAll('.menu-tab');
+            const items = document.querySelectorAll('.menu-item-card');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    const filter = tab.getAttribute('data-filter');
+                    
+                    items.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.remove('hidden');
+                            // Small timeout to allow display:block to apply before opacity transition
+                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(10px)';
+                            setTimeout(() => { item.classList.add('hidden'); }, 400); // Wait for transition
+                        }
+                    });
+                });
+            });
+
+            /* --- LIGHTBOX W/ NAVIGATION --- */
+            const lightbox = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            let currentImgIndex = 0;
+            const imagesSrc = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+            function openLightbox(index) {
+                currentImgIndex = index;
+                lbImg.src = imagesSrc[currentImgIndex];
+                lightbox.classList.add('active');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = 'auto';
+            }
+
+            function navLightbox(direction) {
+                currentImgIndex = (currentImgIndex + direction + imagesSrc.length) % imagesSrc.length;
+                lbImg.src = imagesSrc[currentImgIndex];
+            }
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => openLightbox(index));
+            });
+
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); navLightbox(-1); });
+            document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); navLightbox(1); });
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navLightbox(-1);
+                if (e.key === 'ArrowRight') navLightbox(1);
+            });
+
+            /* --- REVIEWS CAROUSEL --- */
+            const track = document.getElementById('carousel');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+            let currentIndex = 0;
+            let startX = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let isDragging = false;
+
+            function setPositionByIndex() {
+                currentTranslate = currentIndex * -100;
+                track.style.transform = `translateX(${currentTranslate}%)`;
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === currentIndex);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    setPositionByIndex();
+                });
+            });
+
+            // Touch support for carousel
+            track.addEventListener('touchstart', touchStart);
+            track.addEventListener('touchend', touchEnd);
+            track.addEventListener('touchmove', touchMove);
+            track.addEventListener('mousedown', touchStart);
+            track.addEventListener('mouseup', touchEnd);
+            track.addEventListener('mouseleave', () => { if(isDragging) touchEnd() });
+            track.addEventListener('mousemove', touchMove);
+
+            function touchStart(event) {
+                isDragging = true;
+                startX = getPositionX(event);
+            }
+            function touchMove(event) {
+                if (isDragging) {
+                    const currentPosition = getPositionX(event);
+                    const diff = currentPosition - startX;
+                    // Simple threshold to prevent clicking while swiping
+                }
+            }
+            function touchEnd(event) {
+                isDragging = false;
+                const endX = event.type.includes('mouse') ? event.clientX : event.changedTouches[0].clientX;
+                const diff = endX - startX;
+                
+                if (diff < -50 && currentIndex < slides.length - 1) currentIndex += 1;
+                else if (diff > 50 && currentIndex > 0) currentIndex -= 1;
+                
+                setPositionByIndex();
+            }
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+            }
+
+            /* --- DYNAMIC OPEN HOURS --- */
+            function checkHours() {
+                // Pacific Time (Seattle)
+                const options = { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: 'numeric', hour12: false, weekday: 'numeric' };
+                const formatter = new Intl.DateTimeFormat([], options);
+                
+                // Get current date/time in Seattle
+                const now = new Date();
+                const seattleDate = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+                const day = seattleDate.getDay(); // 0 = Sun, 1 = Mon, 2 = Tue...
+                const hour = seattleDate.getHours();
+                
+                const badge = document.getElementById('status-badge');
+                const text = document.getElementById('status-text');
+                const listItems = document.querySelectorAll('#hours-list li');
+
+                // Highlight today
+                listItems.forEach(li => {
+                    if (parseInt(li.getAttribute('data-day')) === day) li.classList.add('today');
+                });
+
+                // Logic: Open Wed-Mon, 8 AM - 2 PM (14:00). Closed Tuesday (day 2).
+                if (day === 2) {
+                    badge.className = 'status-badge status-closed';
+                    text.textContent = 'Closed Today';
+                } else if (hour >= 8 && hour < 14) {
+                    badge.className = 'status-badge status-open';
+                    text.textContent = 'Open Now — Closes at 2 PM';
+                } else {
+                    badge.className = 'status-badge status-closed';
+                    if (hour < 8) text.textContent = 'Closed — Opens at 8 AM';
+                    else text.textContent = 'Closed — Opens Tomorrow 8 AM';
+                }
+            }
+            checkHours();
+
+        });
+    </script>
+</body>
+</html>

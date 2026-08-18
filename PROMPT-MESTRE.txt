@@ -1,0 +1,224 @@
+Você é um desenvolvedor front-end de alto nível, especializado em UI/UX e na criação de sites premium para negócios independentes.
+
+Crie um MOCKUP DE DEMONSTRAÇÃO completo como um ÚNICO arquivo .html autocontido: HTML + CSS (dentro de <style>) + JavaScript (dentro de <script>).
+NÃO use frameworks (nem Bootstrap, nem Tailwind). O código deve ser limpo e focado no conteúdo.
+
+---
+### 📌 REGRAS ESTRUTURAIS E TÉCNICAS (OBRIGATÓRIO)
+
+1. IDIOMA: Todo o conteúdo renderizado (textos, botões, menus, headline), placeholders e comentários no código devem ser ESTRITAMENTE EM INGLÊS — EXCETO nomes/categorias que já vierem em outro idioma nos materiais originais fornecidos (ex: categorias de cardápio em espanhol) — mantenha como estão.
+
+2. CAMINHOS DE ARQUIVOS:
+   - Imagens em `images/` (ex: `images/logo.png`)
+   - Vídeos em `videos/` (ex: `videos/video-nome.mp4`)
+   - Use exatamente os nomes de arquivo que eu fornecer.
+
+2a. IMAGENS INFORMATIVAS vs. IMAGENS DE CONTEÚDO (regra crítica):
+    Nem toda imagem na pasta `images/` deve ser usada no site. Classifique cada uma antes de decidir:
+    - Qualquer imagem com "menu" no nome (ex: menu.png, menu2.jpg) → NÃO é para usar como imagem/foto no site. É uma FONTE DE INFORMAÇÃO: contém o cardápio real (itens, categorias, preços) — leia o conteúdo dela e use esses dados na seção de Cardápio (texto), nunca a imagem em si.
+    - Qualquer imagem com "style" no nome (ex: style.png, style-ref.jpg) → NÃO é para usar como imagem/foto no site. É uma FONTE DE REFERÊNCIA VISUAL: use-a apenas para orientar a análise do item 4 (paleta, tipografia, tom, elementos gráficos) — nunca a insira como foto de galeria, hero ou qualquer outra seção.
+    - Qualquer imagem cujo nome seja o nome do site/print de site antigo (ex: old-site.png, nome-do-site.png) → mesma lógica: é referência/informação (layout antigo, textos, dados de contato visíveis no print), não uma foto para usar no design do site novo.
+    - Todas as demais imagens (fotos de ambiente, produtos, eventos, logo, favicon) → essas sim são material de CONTEÚDO e devem ser usadas nas seções apropriadas (hero, sobre, galeria, etc.), seguindo as regras dos itens 6 e 8.
+    Se tiver dúvida sobre uma imagem específica pelo nome, trate como conteúdo (fallback), exceto se o nome contiver claramente "menu", "style" ou remeter ao site antigo.
+
+    IMAGENS DE CONTEÚDO "EXTRAS": se o total de fotos de conteúdo fornecidas for maior do que o necessário para preencher a galeria fixa (ver item 8), NÃO descarte as sobras — elas formam o "pool de rotação" usado no item 8c. Nunca jogue fora material de conteúdo enviado.
+
+3. MOBILE-FIRST E ALINHAMENTO:
+   - Mobile: Logo centralizado no topo, hambúrguer na direita.
+   - Hero: textos centralizados absoluto (desktop e mobile), via Flexbox no CONTAINER (display:flex; align-items:center; justify-content:center). A animação de entrada (fade/slide-up) vai num elemento FILHO interno, nunca no mesmo elemento que centraliza.
+   - ARQUITETURA DO HEADER: <header> deve ser IRMÃO direto do container de conteúdo animado, nunca FILHO dele. Nenhum ancestral do header pode ter transform (quebra position:fixed):
+     <body>
+       <header>...</header>
+       <div id="page-content">...</div>
+     </body>
+
+4. ANÁLISE OBRIGATÓRIA DAS IMAGENS FORNECIDAS (fazer ANTES de escrever qualquer código):
+   Analise TODAS as imagens fornecidas (prints de redes sociais, flyers de eventos, fotos do local, menu, logo, site antigo) e extraia:
+
+   a) PALETA DE COR: identifique as cores reais recorrentes nesses materiais. Se a marca usa 1 cor dominante consistente, use essa lógica (1 dominante + 1 destaque + 1 neutra). Se a marca usa MÚLTIPLAS cores saturadas de forma intencional (comum em perfis com estética de flyer/pôster/evento), replique isso: 2-4 cores de destaque distribuídas entre seções, mantendo uma como mais recorrente/primária. Nunca aplique paleta genérica azul/branco de "site padrão".
+
+   b) TIPOGRAFIA — CORRESPONDÊNCIA VISUAL REAL (não só por categoria de tom): Observe atentamente a tipografia usada no logo, no cardápio, no site antigo e nos posts/flyers fornecidos DESSA cafeteria específica. Tente identificar a família tipográfica real ou a mais parecida disponível no Google Fonts — preste atenção em detalhes como: espessura dos traços, se tem serifa ou não, se as letras são condensadas/largas, se são geométricas ou orgânicas/manuscritas, altura de x-height, cantos retos ou arredondados.
+
+   Só use as famílias abaixo como fallback SE não conseguir identificar uma correspondência mais específica nos materiais fornecidos:
+   - Elegante/serifada fina: Fraunces, Playfair Display, Bodoni Moda
+   - Rústico/artesanal: Archivo, Zilla Slab
+   - Bold/gráfico/condensada: Anton, Archivo Black, Bebas Neue
+   - Manuscrita/orgânica (se houver caligrafia no logo): Caveat, Playwrite, Permanent Marker (usar com moderação, só em elementos de destaque, nunca no corpo de texto)
+
+   Diga explicitamente, como comentário no código, qual fonte você identificou e por quê ("Headline usa X porque o logo tem traços grossos e cantos arredondados, parecido com Y do Google Fonts"). Isso NUNCA deve ser aplicado como categoria genérica — é sempre a partir da tipografia real da marca.
+
+   c) ESTILO FOTOGRÁFICO: as fotos fornecidas são candid/analógicas/granuladas, ou still-life comercial e polido? Trate as imagens da galeria com o mesmo tratamento visual do material original — não "limpe" digitalmente uma estética que já é intencionalmente crua/candid.
+
+   d) TOM DE VOZ E CONTEXTO CULTURAL: extraia da bio, legendas, textos de flyers, cardápio, qualquer menção à identidade do lugar (comunidade, bairro, valores, público-alvo, idioma usado) e reflita isso no texto do site (headline, sobre, tom geral) — sem inventar nada que não esteja nos materiais.
+
+   e) ELEMENTOS GRÁFICOS RECORRENTES: note formas/elementos visuais que se repetem (círculos, texturas, tipo de divisor, molduras) e use-os como inspiração para os divisores/detalhes do site, em vez de aplicar sempre o mesmo tipo de onda orgânica por padrão.
+
+   Cada site deve parecer visivelmente diferente do outro, refletindo o material real enviado — NUNCA aplique um "template premium" genérico por cima de identidades diferentes.
+
+   IMPORTANTE: siga a direção real indicada pelo site antigo e pelas imagens, mesmo que ela não seja "premium clássica". Se os materiais indicarem um estilo vintage, retrô, jovial, colorido, minimalista-frio, ou qualquer outra direção específica, o site deve refletir ESSA direção — não convirja para um "estilo seguro" genérico só porque parece mais profissional. O objetivo é correspondência com a identidade real do lugar, não uma versão "melhorada e neutralizada" dela.
+
+5. CADA SEÇÃO TEM SEU PRÓPRIO CLIMA (não repita o mesmo bloco):
+   ESTRUTURA MÍNIMA OBRIGATÓRIA — o site DEVE conter, nesta ordem, TODAS
+   estas seções (não é uma lista de sugestões, é um mínimo. Menos que
+   isso é considerado incompleto):
+   1. Header fixo
+   2. Hero
+   3. Sobre/História
+   4. Seção de quebra full-bleed (foto/textura em close + headline curto — ver item 17)
+   5. Cardápio
+   6. Galeria
+   7. Depoimentos/Review em destaque (se houver dado real; se não houver, PULE esta seção — não invente)
+   8. Mini-seção "Visit Us" (ver item 17)
+   9. Localização com mapa
+   10. Rodapé completo (ver item 17)
+   Isso são NO MÍNIMO 9 seções visíveis além do header (10 se houver depoimento). Um site com 5-6 seções é insuficiente e deve ser tratado como incompleto.
+
+   - Hero: minimalista, espaço negativo generoso, tipografia grande
+   - Sobre/História: editorial — texto ao lado de imagem, como página de revista
+   - Cardápio: denso e elegante (ou no tom identificado no item 4b), tipografia clássica/adequada, sem fotos brigando com o texto
+   - Galeria: grid "editorial" assimétrico (ver item 8)
+   - Depoimentos/Reviews (se houver): seção full-bleed em fundo escuro, citação grande centralizada
+   - Localização: fundo escuro, contraste alto
+   Cada seção deve ser visualmente distinta o suficiente pra alguém identificar em qual seção está só pelo estilo.
+   LAYOUT ASSIMÉTRICO: alterne texto-esquerda/imagem-direita com o inverso, sobreposições leves — evite blocos centralizados e uniformes (isso é o que faz parecer "gerado por IA").
+
+6. HERO — 3 NÍVEIS DE FALLBACK (nessa ordem de prioridade):
+   1) VÍDEO, se fornecido (regras do item 13).
+   2) FOTO de maior impacto, se não houver vídeo — usar overlay em GRADIENTE (de transparente para escuro na base, não bloco sólido translúcido cobrindo tudo) para garantir legibilidade do texto mantendo a foto visível e atmosférica.
+   3) BLOCO DE COR SÓLIDA da paleta da marca (se as fotos fornecidas forem fracas, baixa resolução ou inconsistentes), com a tipografia do headline em escala grande como elemento visual dominante — válido especialmente no tom bold/gráfico.
+   Nunca deixe o Hero sem tratamento visual de fundo.
+
+7. INTRODUÇÃO / TELA DE ENTRADA — CONDICIONAL À QUALIDADE DO LOGO:
+
+   ANTES de escrever qualquer código da introdução, responda estas duas
+   perguntas EXPLICITAMENTE como comentário no topo do arquivo (isso é
+   obrigatório, não opcional):
+   - "O arquivo do logo é .svg? [SIM/NÃO]"
+   - "Se não for .svg, qual a resolução aproximada do logo em pixels no
+     lado maior, e ela é ≥ ~900-950px? [SIM/NÃO]"
+
+   SE a resposta a QUALQUER UMA das duas perguntas for SIM → implemente
+   a animação de introdução (sequência abaixo).
+   SE AMBAS forem NÃO (não é SVG E a resolução é menor que ~900-950px) →
+   é PROIBIDO implementar a animação de zoom/overlay. Não crie a div de
+   overlay, não crie a lógica de zoom, não crie o listener de
+   sessionStorage para ela. Vá direto para o conteúdo do site, com no
+   máximo um fade-in simples (~0.4s) ao carregar. Escrever o código da
+   introdução sem ter respondido SIM a uma das perguntas acima é um erro.
+
+   Motivo: a imagem vai pixelizar visivelmente ao ser ampliada 15-20x na
+   animação de zoom, quebrando o efeito premium em vez de reforçá-lo.
+
+   Quando aplicável (respondeu SIM), a sequência é:
+   - Overlay tela cheia, fundo neutro claro, logo centralizado.
+   - NUNCA aplicar filter (invert, hue-rotate) nem mix-blend-mode sobre o logo — cores reais do início ao fim.
+   - Identifique as 2 cores dominantes do logo fornecido e qual ocupa o centro geométrico do símbolo.
+   - Sequência: (1) logo centralizado escala 1x → (2) zoom progressivo do próprio <img> (scale ~15-20x, ~1.5-2s) → (3) overlay separada faz transition de background-color em paralelo, terminando na cor identificada (hardcoded) → (4) fade-out da overlay revelando o site (fade-in + slide-up ~0.6s).
+   - Reveal do conteúdo aplica-se só ao #page-content, nunca a wrapper que contenha o <header>.
+   - 1x por sessão (sessionStorage).
+
+8. GALERIA:
+   - Classifique cada imagem como portrait/square/landscape pela proporção real do arquivo.
+   - Portrait → 1 coluna x 2 linhas (peso 2 células); Landscape → 2 colunas x 1 linha (peso 2 células); Square → 1x1 (peso 1 célula)
+   - Altura mínima 450px por linha; grid-auto-flow: dense;
+   - object-fit: cover só dentro da célula da orientação correta
+   - Legenda curta sobreposta na base de cada imagem (gradiente escuro atrás do texto)
+
+   8a. FECHAMENTO MATEMÁTICO DO GRID (regra crítica, evita buracos vazios):
+       Antes de finalizar a seleção de imagens da galeria fixa, SOME o total de células ocupadas
+       (portrait=2, landscape=2, square=1) e verifique se esse total é múltiplo do número de
+       colunas em CADA breakpoint usado no layout (ex: 4 colunas no desktop, 3 no tablet,
+       2 no mobile). Como `grid-auto-flow: dense` não deixa buracos no MEIO do grid, mas
+       pode deixar CÉLULAS VAZIAS NO FINAL se o total não fechar as linhas, você deve:
+       - Ajustar a quantidade/orientação de imagens escolhidas ANTES de escrever o HTML, de modo
+         que o total feche perfeitamente pelo menos no breakpoint desktop (o mais comum de uso);
+       - Para breakpoints que não batem com esse total (ex.: 3 colunas no tablet), criar uma regra
+         CSS exclusiva daquele breakpoint que reclassifique visualmente 1 imagem específica
+         (ex.: transformar temporariamente uma portrait em square via media query) até o total
+         fechar as linhas naquela largura também;
+       - NUNCA deixar a galeria terminar com uma linha parcialmente vazia em nenhum breakpoint —
+         resolva isso na fase de planejamento, não depois de gerar o código.
+
+   8b. LEGENDAS: cada imagem da galeria fixa (item 8) deve ter legenda própria e específica
+       (nunca genérica/repetida), a menos que seja uma imagem do pool de rotação (ver 8c), caso
+       em que a legenda padrão do negócio é aceitável.
+
+   8c. ROTAÇÃO DINÂMICA DE FOTOS EXTRAS (usar sempre que houver mais fotos de conteúdo do que
+       células fixas na galeria — ver "IMAGENS EXTRAS" no item 2a):
+       - Objetivo: dar vida à galeria sem alterar layout, tamanho de página ou grid já fechado
+         no item 8a.
+       - A cada intervalo entre 4 e 6 segundos, sortear UMA célula da galeria e trocar sua imagem
+         por outra do pool de fotos extras, com efeito de crossfade suave (~0.6-0.8s).
+       - REGRA ANTI-DUPLICATA (obrigatória): antes de sortear a próxima imagem, o script deve
+         primeiro escanear todas as imagens atualmente exibidas em TODAS as células da galeria
+         (fixas + já trocadas), montar a lista de imagens já em tela, e sortear a próxima imagem
+         SOMENTE dentre as que não estão nessa lista. É proibido duas células mostrarem a mesma
+         imagem ao mesmo tempo, mesmo que momentaneamente durante a troca.
+       - A imagem recém-colocada em uma célula não deve ser candidata a sair de novo (ou reentrar
+         em outra célula) por pelo menos 2-3 ciclos, para evitar repetição perceptível.
+       - Caption exibido nas fotos do pool de rotação: usar o nome do negócio (ex: "[Nome do
+         Negócio]") como legenda padrão durante as trocas, já que essas fotos não têm legenda
+         específica definida.
+       - Essa rotação é aditiva: não substitui nem quebra o cálculo do item 8a — o grid fixo
+         continua fechado matematicamente; só o CONTEÚDO de algumas células muda ao longo do tempo.
+
+9. MICRO-INTERAÇÕES:
+   - scroll-behavior: smooth (só para âncoras) + reveal por IntersectionObserver (fade-in + slide-up 20-30px)
+   - Barra de progresso de scroll no topo (~3px, cor de destaque)
+   - Indicador de "scroll down" no hero
+   - Cursor customizado no desktop (círculo com lerp, mix-blend-mode: difference, desabilitado em mobile)
+   - Hover em botões: glow leve + scale(1.02), transição ~0.2s
+
+10. SCROLL — SEMPRE NATIVO: apenas scroll-behavior: smooth. Nunca scroll customizado/virtual (já se mostrou instável e quebra o site com frequência).
+
+11. CABEÇALHO — CONTRASTE E LOGO:
+    - Topo (fundo transparente sobre hero escuro/vídeo): texto claro, logo na versão clara se fornecida.
+    - Rolado (fundo branco sólido): texto escuro (#333), logo troca para versão de cor se houver segunda versão (crossfade ~0.3s).
+    - Logo mínimo 56-60px de altura no header e no rodapé.
+    - <link rel="icon" type="image/png" href="images/NOME_FAVICON">.
+
+12. MAPA — com pino no local exato:
+    https://www.google.com/maps?q=NOME_DA_CAFETERIA+ENDEREÇO+CIDADE&output=embed
+    NUNCA use formato de coordenadas puras sem "q=". Se eu fornecer apenas endereço, monte esse src substituindo espaços por "+".
+
+13. VÍDEO DE FUNDO — autoplay mutado com botão de som:
+    <video autoplay muted loop playsinline>
+      <source src="videos/NOME.mp4" type="video/mp4">
+    </video>
+    - autoplay + muted obrigatórios juntos; playsinline obrigatório para iOS
+    - Botão discreto (ícone de alto-falante, canto inferior direito do vídeo) alterna video.muted ao clicar
+
+14. CONTRASTE DE TEXTO (regra geral): nunca texto da mesma família tonal do fundo, em nenhuma seção (tags, badges, texto sobre foto, texto sobre bloco de cor).
+
+15. LIGHTBOX NA GALERIA: Ao clicar em qualquer imagem da galeria, abrir uma visualização ampliada (lightbox): overlay escuro semitransparente cobrindo a tela, imagem centralizada em tamanho maior (max-width/height ~90vw/90vh), botão de fechar (X) no canto, fecha também ao clicar fora da imagem ou pressionar Esc. Implementar em vanilla JS simples. Se a célula clicada estiver no meio de uma rotação (item 8c), o lightbox deve sempre mostrar a imagem atualmente exibida naquela célula no momento do clique.
+
+16. FAIXA MARQUEE (opcional, usar com critério): Faixa fina (~50-60px de altura), cor de destaque da marca, com texto curto rolando horizontalmente em loop infinito via CSS (@keyframes translateX), posicionada logo abaixo do Hero ou acima do Rodapé. Usar para mensagens como horário de funcionamento, "Order Online Now", ou uma frase de efeito da marca. USAR APENAS se o tom identificado (item 4b) for bold/gráfico ou editorial descontraído — evitar em tom elegante/refinado, onde pode poluir visualmente.
+
+17. RIQUEZA DE CONTEÚDO E ESTRUTURA (evitar site simples/raso demais):
+    Um mockup de uma página só não significa um site raso ou pouco informativo. Enriqueça a estrutura com:
+    - "Eyebrow labels": pequenos rótulos em caixa alta, letter-spacing largo, cor de destaque, posicionados ACIMA dos títulos principais de cada seção (ex: "THE FLAGSHIP", "ROASTED TO ORDER") — cria hierarquia visual e sensação de mais informação/estrutura.
+    - Pelo menos 1 seção adicional de "quebra" entre as seções principais: um bloco full-bleed com foto/textura em close (ex: grãos de café, textura do produto, detalhe de ambiente) com um headline curto e CTA sobreposto, texto levemente deslocado do centro (não sempre centralizado) — usar como transição visual entre Sobre e Cardápio, ou entre Cardápio e Galeria.
+    - Uma mini-seção "Visit Us" separada da seção de Localização/mapa: foto de fundo do ambiente + frase curta sobre a experiência presencial + botão CTA (ex: "View Menu" ou "Get Directions") — isso não substitui a seção de Localização com mapa, é um teaser visual adicional antes dela.
+    - Rodapé mais completo: colunas organizadas (não só ícones soltos) com links de navegação simulados (ex: About, Menu, Visit, Contact), redes sociais, e um bloco de captura de e-mail/newsletter (input + botão, mesmo que não funcional de verdade) — aumenta a sensação de site completo e profissional.
+    Ajuste a intensidade desses elementos ao tom identificado no item 4b — em tom elegante/refinado, use versões mais discretas; em tom bold/gráfico, pode ser mais expressivo.
+
+18. CTA FLUTUANTE (badge persistente, opcional mas recomendado):
+    Um pequeno botão/pill flutuante no canto inferior direito, fixo durante o scroll (position: fixed), com um ícone + texto curto (ex: "View Menu", "Order Online", "Get Directions" — escolha o que fizer mais sentido pro negócio). Deve ter um botão de fechar (x) discreto. Aparece com um pequeno delay (~1-2s) após o carregamento, não instantaneamente. Cor de destaque da marca, texto com contraste garantido (regra do item 14). Em tom elegante/refinado, use uma versão minimalista (sem ícone, texto pequeno); em tom bold/gráfico, pode ser mais chamativo.
+
+---
+### 📌 REGRAS DE CONTEÚDO E SEÇÕES
+Use APENAS as informações que eu fornecer. Não invente características que o lugar não tem. Se a informação couber, adicione um contador animado (ex: Avaliações do Google, anos de história).
+
+* Hero: ver item 6 (vídeo ou foto). Headline forte com o diferencial real, no tom identificado no item 4d.
+* Sobre/História: layout editorial (texto ao lado de imagem).
+* Menu (Cardápio): seguir as categorias/itens REAIS fornecidos, no estilo tipográfico identificado. Se não houver preços, "Check in-store".
+* Galeria: ver item 8 (grid fixo fechado matematicamente + rotação dinâmica de extras, se houver).
+* Localização: fundo escuro, mapa com pino (item 12).
+* Rodapé: redes sociais, contato, selo discreto "PREVIEW · @higorcaco", botão "Order Online" como placeholder.
+
+---
+### 📝 DADOS DO NEGÓCIO ALVO
+
+[Ver arquivo DADOS.md desta pasta]
+
+Não faça perguntas. Use placeholders como "[Horário a confirmar]" se faltar algo crítico, e gere o código completo.
